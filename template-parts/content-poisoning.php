@@ -13,7 +13,7 @@
 	<header class="entry-header">
 		<?php
 		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">poison: ', '</h1>' );
+			the_title( '<h1 class="entry-title">Victim: ', '</h1>' );
 		else :
 			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
@@ -32,6 +32,10 @@
 	<?php state_poisonings_post_thumbnail(); ?>
 
 	<div class="entry-content">
+		<?php 
+			echo poisoning_basic_data('method', 'h2');
+			echo poisoning_basic_data('notes', 'h2');
+		?>
 		<?php
 		the_content(
 			sprintf(
@@ -47,7 +51,6 @@
 				wp_kses_post( get_the_title() )
 			)
 		);
-		the_field('method');
 		wp_link_pages(
 			array(
 				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'state-poisonings' ),
