@@ -162,8 +162,8 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "F j, Y",
-            "return_format": "d\/m\/Y",
+            "display_format": "m\/d\/Y",
+            "return_format": "m\/d\/Y",
             "first_day": 1,
             "allow_in_bindings": 0
         },
@@ -181,8 +181,8 @@
                 "class": "",
                 "id": ""
             },
-            "display_format": "F j, Y",
-            "return_format": "d\/m\/Y",
+            "display_format": "m\/d\/Y",
+            "return_format": "m\/d\/Y",
             "first_day": 1,
             "allow_in_bindings": 0
         },
@@ -533,9 +533,14 @@
     "style": "default",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "the_content",
+        "excerpt",
+        "categories",
+        "tags"
+    ],
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1752849145
+    "modified": 1752858998
 }
