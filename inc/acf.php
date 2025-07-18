@@ -9,18 +9,46 @@
  */
 
 
-function poisoning_basic_data($field_name, $h_level){
+function poisoning_basic_section($field_name, $h_level){
 	if(isset(get_field_object($field_name)['value'])){
 		$basic_obj = get_field_object($field_name);
 	    $basic = $basic_obj['value'];   
 	   
 	    $basic_label = $basic_obj['label'];	   
 	    $slug = sanitize_title($basic_label);
-	    return "<div class='section' id='{$slug}'>
+	    return "<div class='section' id='section-{$slug}'>
 	    		<{$h_level} id='{$slug}-label'>{$basic_label}</{$h_level}>
 	            {$basic}
 	            </div>";   
 	}	
+}
+
+function poisoning_basic_label($field_name){
+	if(isset(get_field_object($field_name)['value'])){
+		$basic_obj = get_field_object($field_name);
+	    $basic = $basic_obj['value'];   
+	   
+	    $basic_label = $basic_obj['label'];	   
+	    $slug = sanitize_title($basic_label);
+	    return "<div class='detail' id='{$slug}'>
+	    		<span id='{$slug}-label'>{$basic_label}</span>: 
+	            {$basic}
+	            </div>";   
+	}	
+}
+
+function poisoning_taxonomy($title, $taxonomy){
+	global $post;
+	$terms = get_the_terms($post->ID, $taxonomy);
+	if ( !empty($terms) ) :
+	$output = "<h2>{$title}</h2><ul>";
+	foreach( $terms as $term ) {		
+		$output .= "<li>{$term->name}</li>";
+		//var_dump($term);
+	}
+	$output .='</ul>';
+	echo $output;
+endif;
 }
 
 //save acf json

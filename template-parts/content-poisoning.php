@@ -22,8 +22,8 @@
 			?>
 			<div class="entry-meta">
 				<?php
-				state_poisonings_posted_on();
-				state_poisonings_posted_by();
+					state_poisonings_posted_on();
+					state_poisonings_posted_by();
 				?>
 			</div><!-- .entry-meta -->
 		<?php endif; ?>
@@ -32,9 +32,20 @@
 	<?php state_poisonings_post_thumbnail(); ?>
 
 	<div class="entry-content">
+		<div class="poison-details">
+			<?php 
+				poisoning_taxonomy('Poison', 'agents');
+				poisoning_taxonomy('Occupation', 'occupations');
+			?>
+		</div>
+		<div class="victim-details">
+			<?php 
+				poisoning_taxonomy('Occupation', 'occupations');
+			?>
+		</div>
 		<?php 
-			echo poisoning_basic_data('method', 'h2');
-			echo poisoning_basic_data('notes', 'h2');
+			echo poisoning_basic_section('method', 'h2');
+			echo poisoning_basic_section('notes', 'h2');
 		?>
 		<?php
 		the_content(
