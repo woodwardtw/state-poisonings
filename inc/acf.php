@@ -41,10 +41,9 @@ function poisoning_taxonomy($title, $taxonomy){
 	global $post;
 	$terms = get_the_terms($post->ID, $taxonomy);
 	if ( !empty($terms) ) :
-	$output = "<h2>{$title}</h2><ul>";
+	$output = "<h3>{$title}</h3><ul>";
 	foreach( $terms as $term ) {		
 		$output .= "<li>{$term->name}</li>";
-		//var_dump($term);
 	}
 	$output .='</ul>';
 	echo $output;

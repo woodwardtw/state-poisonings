@@ -978,9 +978,17 @@ article.post {
 	padding-bottom: 40px;		
 }
 
-#page {
+#page, .entry-content {
 	display: flex;
 	flex-wrap: wrap;
+}
+
+.details {
+	width: 50%;
+}
+
+.section {
+	width: 100vw;
 }
 
 #colophon {

@@ -32,17 +32,17 @@
 	<?php state_poisonings_post_thumbnail(); ?>
 
 	<div class="entry-content">
-		<div class="poison-details">
+		<div class="victim-details details">
+			<?php 
+				poisoning_taxonomy('Occupation', 'occupations');
+			?>
+		</div>
+		<div class="poison-details details">
 			<?php 
 				poisoning_taxonomy('Poison', 'agents');
-				poisoning_taxonomy('Occupation', 'occupations');
 			?>
 		</div>
-		<div class="victim-details">
-			<?php 
-				poisoning_taxonomy('Occupation', 'occupations');
-			?>
-		</div>
+	
 		<?php 
 			echo poisoning_basic_section('method', 'h2');
 			echo poisoning_basic_section('notes', 'h2');
